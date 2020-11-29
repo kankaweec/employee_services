@@ -56,7 +56,7 @@ public class EmployeeController {
     })
     public EmployeeDTO getById(
     		@ApiParam(value="Send employee object to be created",required = true) @RequestBody EmployeeDTO employee, 
-    		@ApiParam(value="Send employee object to be created",required = true) @RequestBody TokenDTO token
+    		@ApiParam(value="Token",required = true) @RequestBody TokenDTO token
     ) throws Exception {
         if(!StringUtils.trimToEmpty(tokenTmp.getToken()).equals("") && tokenTmp.getToken().equals(StringUtils.trimToEmpty(token.getToken()))) {
         	return employees.get(employee.getEmpid());
@@ -76,7 +76,7 @@ public class EmployeeController {
             @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
     })
     public List<EmployeeDTO> getAll(
-    		@ApiParam(value="Send employee object to be created",required = true) @RequestBody TokenDTO token
+    		@ApiParam(value="Token",required = true) @RequestBody TokenDTO token
     ) {
     	if(!StringUtils.trimToEmpty(tokenTmp.getToken()).equals("") && tokenTmp.getToken().equals(StringUtils.trimToEmpty(token.getToken()))) {
     		return new ArrayList<EmployeeDTO>(employees.values());
@@ -118,7 +118,7 @@ public class EmployeeController {
     })
     public EmployeeDTO update(
     		@ApiParam(value="Send employee object to be created",required = true) @RequestBody EmployeeDTO employee, 
-    		@ApiParam(value="Send employee object to be created",required = true) @RequestBody TokenDTO token
+    		@ApiParam(value="Token",required = true) @RequestBody TokenDTO token
     ) {
        if(!StringUtils.trimToEmpty(tokenTmp.getToken()).equals("") && tokenTmp.getToken().equals(StringUtils.trimToEmpty(token.getToken()))) {
         	employees.put(employee.getEmpid(), employee);
@@ -140,7 +140,7 @@ public class EmployeeController {
     })
     public EmployeeDTO deleteById(
     		@ApiParam(value="Send employee object to be created",required = true) @RequestBody EmployeeDTO employee, 
-    		@ApiParam(value="Send employee object to be created",required = true) @RequestBody TokenDTO token
+    		@ApiParam(value="Token",required = true) @RequestBody TokenDTO token
     ) {
        if(!StringUtils.trimToEmpty(tokenTmp.getToken()).equals("") && tokenTmp.getToken().equals(StringUtils.trimToEmpty(token.getEmpid()))) {
         	return employees.remove(employee.getEmpid());
@@ -161,7 +161,7 @@ public class EmployeeController {
             @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
     })
     public void deleteAll(
-    		@ApiParam(value="Send employee object to be created",required = true) @RequestBody TokenDTO token
+    		@ApiParam(value="Token",required = true) @RequestBody TokenDTO token
     ) {
         if(!StringUtils.trimToEmpty(tokenTmp.getToken()).equals("") && tokenTmp.getToken().equals(StringUtils.trimToEmpty(token.getToken()))) {
         	employees.clear();
