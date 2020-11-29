@@ -1,4 +1,4 @@
-# Wmployee_services
+# Employee_services
 for backend Spring REST API coding exercise
 
 # Here I'm keeping it simple and not creating a service, just taking values from the hashmap
